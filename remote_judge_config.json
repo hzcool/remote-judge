@@ -1,0 +1,149 @@
+{
+    "codeforces": {
+        "lang_map": {
+            "c": "43",
+            "cpp": "50",
+            "cpp14": "50",
+            "cpp-noilinux": "50",
+            "cpp14-noi": "50",
+            "cpp17": "54",
+            "java": "60",
+            "pascal": "4",
+            "python2": "7",
+            "python3": "31",
+            "csharp": "79"
+        },
+        "accounts": [
+            {
+                "handler": "nfls001@snapmail.cc",
+                "password": "nfls_001"
+            },
+            {
+                "handler": "nfls002@snapmail.cc",
+                "password": "nfls_002"
+            },
+            {
+                "handler": "nfls003@snapmail.cc",
+                "password": "nfls_003"
+            },
+            {
+                "handler": "nfls004@snapmail.cc",
+                "password": "nfls_004"
+            },
+            {
+                "handler": "nfls005@snapmail.cc",
+                "password": "nfls_005"
+            }
+        ]
+    },
+    "gym": {
+        "lang_map": {
+            "c": "43",
+            "cpp": "50",
+            "cpp14": "50",
+            "cpp-noilinux": "50",
+            "cpp14-noi": "50",
+            "cpp17": "54",
+            "java": "60",
+            "pascal": "4",
+            "python2": "7",
+            "python3": "31",
+            "csharp": "79"
+        },
+        "accounts": [
+            {
+                "handler": "nfls001@snapmail.cc",
+                "password": "nfls_001"
+            },
+            {
+                "handler": "nfls002@snapmail.cc",
+                "password": "nfls_002"
+            },
+            {
+                "handler": "nfls003@snapmail.cc",
+                "password": "nfls_003"
+            },
+            {
+                "handler": "nfls004@snapmail.cc",
+                "password": "nfls_004"
+            },
+            {
+                "handler": "nfls005@snapmail.cc",
+                "password": "nfls_005"
+            }
+        ]
+    },
+    "hdu": {
+        "lang_map": {
+            "cpp11": "0",
+            "cpp": "0"
+        },
+        "accounts": [
+            {
+                "handler": "jsdhwdmaSbar",
+                "password": "password"
+            },
+            {
+                "handler": "EonGlacy",
+                "password": "Glaceon471"
+            },
+            {
+                "handler": "ppip2579",
+                "password": "4PkEqxAMEHJTusA"
+            }
+        ]
+    },
+    "atcoder": {
+        "lang_map": {
+            "cpp11": "4003",
+            "cpp": "4003",
+            "cpp17": "4003",
+            "cpp-noilinux": "4003",
+            "cpp14": "4003",
+            "java": "4005",
+            "python3": "4006"
+        },
+        "accounts": [
+            {
+                "handler": "earthworm",
+                "password": "nfls_001"
+            },
+            {
+                "handler": "AmurAdonisHerb",
+                "password": "nfls_002"
+            },
+            {
+                "handler": "Asiatic",
+                "password": "nfls_003"
+            },
+            {
+                "handler": "BittersweetHerb",
+                "password": "nfls_004"
+            },
+            {
+                "handler": "Bunge",
+                "password": "nfls_005"
+            },
+            {
+                "handler": "FoolMe",
+                "password": "nfls_006"
+            },
+            {
+                "handler": "AWhiteDress",
+                "password": "nfls_007"
+            },
+            {
+                "handler": "Luxus",
+                "password": "nfls_008"
+            },
+            {
+                "handler": "rank",
+                "password": "nfls_009"
+            },
+            {
+                "handler": "asshead",
+                "password": "nfls_010"
+            }
+        ]
+    }
+}

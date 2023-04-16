@@ -1,0 +1,183 @@
+2023-04-15 10:49:19.881619881 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 10:50:19.149116069 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("10026"), source: None }
+2023-04-15 10:50:31.673052045 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("1026"), source: None }
+2023-04-15 10:50:49.708108561 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "judge", lang: Some("CPP"), problem_id: Some("1000"), source: Some("#include <iostream>\nusing namespace std;\nint main() {\n    int a, b;\n    while (cin >> a >> b) {\n        cout << a + b << endl;\n    }\n    return 0;\n}") }
+2023-04-15 10:51:01.218127025 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "judge", lang: Some("cpp"), problem_id: Some("1000"), source: Some("#include <iostream>\nusing namespace std;\nint main() {\n    int a, b;\n    while (cin >> a >> b) {\n        cout << a + b << endl;\n    }\n    return 0;\n}") }
+2023-04-15 10:51:01.623256286 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623359174 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623419975 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623458321 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623511564 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623546028 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623601545 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623637311 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623675133 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623724323 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623942981 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.623969735 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624005941 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624052791 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624270013 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624296143 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624343384 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624382393 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.624410680 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.669792873 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.669858430 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.669971497 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670020689 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670079577 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670116662 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670174088 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670210972 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670252275 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670305079 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670576207 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670603995 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670640796 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670689497 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670910842 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670937389 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.670986231 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.671025125 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:01.671051779 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727104656 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727176897 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727238598 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727274798 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727327329 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727360763 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727414777 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727447860 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727484967 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727533970 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727730083 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727756521 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727792314 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.727839188 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.728055437 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.728081023 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.728128511 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.728167398 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:04.728195593 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783558836 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783628247 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783689124 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783723980 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783776077 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783808879 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783860762 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783895546 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783933077 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.783980436 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784183152 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784209934 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784245744 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784299626 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784519016 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784545374 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784593101 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784631992 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:51:09.784660495 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 10:52:11.636164646 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "gym", request_type: "get_problem", lang: None, problem_id: Some("104304G"), source: None }
+2023-04-15 10:52:25.169252240 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "atcoder", request_type: "get_problem", lang: None, problem_id: Some("arc159_c"), source: None }
+2023-04-15 11:02:23.410446800 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 11:02:45.935351211 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("1026"), source: None }
+2023-04-15 11:04:43.306390108 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("1000"), source: None }
+2023-04-15 11:07:05.660470896 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("1001"), source: None }
+2023-04-15 11:14:45.364664865 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 11:14:50.254399220 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "gym", request_type: "get_problem", lang: None, problem_id: Some("104304G"), source: None }
+2023-04-15 11:15:46.541933906 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 11:15:49.357675479 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "gym", request_type: "get_problem", lang: None, problem_id: Some("104304G"), source: None }
+2023-04-15 11:16:05.986006252 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "gym", request_type: "get_problem", lang: None, problem_id: Some("104304G"), source: None }
+2023-04-15 11:16:43.758998150 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "codeforces", request_type: "judge", lang: Some("CPP"), problem_id: Some("1641D"), source: Some("// Hydro submission #6332f9d15741ce022119322a@1664285138104\n#include <bits/stdc++.h>\ntypedef long long llt;\ntypedef unsigned uint;typedef unsigned long long ullt;\ntypedef bool bol;typedef char chr;typedef void voi;\ntypedef double dbl;\ntemplate<typename T>bol _max(T&a,T b){return(a<b)?a=b,true:false;}\ntemplate<typename T>bol _min(T&a,T b){return(b<a)?a=b,true:false;}\ntemplate<typename T>T power(T base,T index,T mod){return((index<=1)?(index?base:1):(power(base*base%mod,index>>1,mod)*power(base,index&1,mod)))%mod;}\ntemplate<typename T>T lowbit(T n){return n&-n;}\ntemplate<typename T>T gcd(T a,T b){return b?gcd(b,a%b):a;}\ntemplate<typename T>T lcm(T a,T b){return(a!=0||b!=0)?a/gcd(a,b)*b:(T)0;}\ntemplate<typename T>T exgcd(T a,T b,T&x,T&y){if(!b)return y=0,x=1,a;T ans=exgcd(b,a%b,y,x);y-=a/b*x;return ans;}\nuint W[100005],A[100005][5],Ans[6][6];\nstd::vector<uint>QAQ;\ntypedef std::pair<uint,uint>Pair;\nPair P[6][6];\nuint m;\nuint lcs(uint a,uint b)\n{\n    for(uint i=0;i<m;i++)for(uint j=0;j<m;j++)\n        if(A[a][i]==A[b][j])Ans[i+1][j+1]=Ans[i][j]+1,P[i+1][j+1]=Pair(i,j);\n        else Ans[i+1][j+1]=std::max(Ans[i+1][j],Ans[i][j+1]),P[i+1][j+1]=Ans[i+1][j]>Ans[i][j+1]?Pair(i+1,j):Pair(i,j+1);\n    QAQ.clear();\n    Pair now=Pair(m,m);\n    while(now!=Pair())\n    {\n        if(P[now.first][now.second].first<now.first&&P[now.first][now.second].second<now.second)QAQ.push_back(A[a][now.first]);\n        now=P[now.first][now.second];\n    }\n    return Ans[m][m];\n}\nuint Id[100005],Now[100005],cnt=0;\nconst uint Lim[]={0,1,5,15,40,100};\nint main()\n{\n    uint n;uint ans=-1;\n    scanf(\"%u%u\",&n,&m);\n    for(uint i=0;i<n;i++)\n    {\n        for(uint j=0;j<m;j++)scanf(\"%u\",A[i]+j);\n        scanf(\"%u\",W+i);\n        std::sort(A[i],A[i]+m);\n        Id[i]=i;\n    }\n    std::sort(Id,Id+n,[&](uint a,uint b){return W[a]<W[b];});\n    for(uint i=0;i<n;i++)\n    {\n        uint p=Id[i];\n        std::map<std::vector<uint>,uint>LCNT;\n        for(uint j=0;j<cnt;j++)\n        {\n            uint c=lcs(p,Now[j]);\n            LCNT[QAQ]++;\n            if(!c)_min(ans,W[p]+W[Now[j]]);;;\n        }\n        bol b=true;;\n        for(auto p:LCNT)if(p.second>Lim[m-p.first.size()]){b=false;break;}\n        if(b)Now[cnt++]=p;\n    }\n    printf(\"%d\\n\",(int)ans);;;\n    return 0;\n}") }
+2023-04-15 11:16:50.909421350 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "codeforces", request_type: "get_problem", lang: None, problem_id: Some("1815A"), source: None }
+2023-04-15 11:19:56.807864493 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 11:19:59.701992652 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "codeforces", request_type: "get_problem", lang: None, problem_id: Some("1815A"), source: None }
+2023-04-15 11:20:21.450092197 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("1001"), source: None }
+2023-04-15 11:20:29.728734901 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "atcoder", request_type: "get_problem", lang: None, problem_id: Some("arc159_c"), source: None }
+2023-04-15 11:22:43.329299924 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "judge", lang: Some("cpp"), problem_id: Some("1000"), source: Some("#include <iostream>\nusing namespace std;\nint main() {\n    int a, b;\n    while (cin >> a >> b) {\n        cout << a + b << endl;\n    }\n    return 0;\n}") }
+2023-04-15 11:22:44.448901218 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.448980581 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449036438 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449069999 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449120380 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449151324 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449255609 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449302661 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449338382 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449385423 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449580825 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449606655 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449640575 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449684991 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449915576 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.449960891 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.450065285 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.450137435 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.450163214 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.498532247 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.498693201 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.498786878 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.498839254 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.498911917 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.498953820 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499027005 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499068123 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499122301 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499186529 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499398109 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499429553 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499478503 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499541427 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499766483 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499795021 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499861795 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499908469 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:44.499945409 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557274508 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557375897 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557441070 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557479792 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557537905 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557574632 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557632140 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557668725 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557711383 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.557773582 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558000086 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558044457 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558081427 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558129667 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558349353 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558375797 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558424030 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558462304 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:47.558489068 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129321063 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129405353 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129461837 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129495580 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129552834 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129639508 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129758872 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129843924 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.129923760 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130082601 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130322402 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130347692 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130381635 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130426018 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130661370 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130686379 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130731469 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130769250 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 11:22:53.130794678 [WARN] <html5ever::tree_builder:1149>:foster parenting not implemented
+2023-04-15 12:19:05.657801314 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 12:19:32.183351909 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 12:20:47.309746806 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396
+2023-04-15 12:21:21.143010720 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "hdu", request_type: "get_problem", lang: None, problem_id: Some("1026"), source: None }
+2023-04-15 12:21:44.579215659 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "codeforces", request_type: "get_problem", lang: None, problem_id: Some("1815A"), source: None }
+2023-04-15 12:21:55.388720948 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "codeforces", request_type: "judge", lang: Some("CPP"), problem_id: Some("1641D"), source: Some("// Hydro submission #6332f9d15741ce022119322a@1664285138104\n#include <bits/stdc++.h>\ntypedef long long llt;\ntypedef unsigned uint;typedef unsigned long long ullt;\ntypedef bool bol;typedef char chr;typedef void voi;\ntypedef double dbl;\ntemplate<typename T>bol _max(T&a,T b){return(a<b)?a=b,true:false;}\ntemplate<typename T>bol _min(T&a,T b){return(b<a)?a=b,true:false;}\ntemplate<typename T>T power(T base,T index,T mod){return((index<=1)?(index?base:1):(power(base*base%mod,index>>1,mod)*power(base,index&1,mod)))%mod;}\ntemplate<typename T>T lowbit(T n){return n&-n;}\ntemplate<typename T>T gcd(T a,T b){return b?gcd(b,a%b):a;}\ntemplate<typename T>T lcm(T a,T b){return(a!=0||b!=0)?a/gcd(a,b)*b:(T)0;}\ntemplate<typename T>T exgcd(T a,T b,T&x,T&y){if(!b)return y=0,x=1,a;T ans=exgcd(b,a%b,y,x);y-=a/b*x;return ans;}\nuint W[100005],A[100005][5],Ans[6][6];\nstd::vector<uint>QAQ;\ntypedef std::pair<uint,uint>Pair;\nPair P[6][6];\nuint m;\nuint lcs(uint a,uint b)\n{\n    for(uint i=0;i<m;i++)for(uint j=0;j<m;j++)\n        if(A[a][i]==A[b][j])Ans[i+1][j+1]=Ans[i][j]+1,P[i+1][j+1]=Pair(i,j);\n        else Ans[i+1][j+1]=std::max(Ans[i+1][j],Ans[i][j+1]),P[i+1][j+1]=Ans[i+1][j]>Ans[i][j+1]?Pair(i+1,j):Pair(i,j+1);\n    QAQ.clear();\n    Pair now=Pair(m,m);\n    while(now!=Pair())\n    {\n        if(P[now.first][now.second].first<now.first&&P[now.first][now.second].second<now.second)QAQ.push_back(A[a][now.first]);\n        now=P[now.first][now.second];\n    }\n    return Ans[m][m];\n}\nuint Id[100005],Now[100005],cnt=0;\nconst uint Lim[]={0,1,5,15,40,100};\nint main()\n{\n    uint n;uint ans=-1;\n    scanf(\"%u%u\",&n,&m);\n    for(uint i=0;i<n;i++)\n    {\n        for(uint j=0;j<m;j++)scanf(\"%u\",A[i]+j);\n        scanf(\"%u\",W+i);\n        std::sort(A[i],A[i]+m);\n        Id[i]=i;\n    }\n    std::sort(Id,Id+n,[&](uint a,uint b){return W[a]<W[b];});\n    for(uint i=0;i<n;i++)\n    {\n        uint p=Id[i];\n        std::map<std::vector<uint>,uint>LCNT;\n        for(uint j=0;j<cnt;j++)\n        {\n            uint c=lcs(p,Now[j]);\n            LCNT[QAQ]++;\n            if(!c)_min(ans,W[p]+W[Now[j]]);;;\n        }\n        bol b=true;;\n        for(auto p:LCNT)if(p.second>Lim[m-p.first.size()]){b=false;break;}\n        if(b)Now[cnt++]=p;\n    }\n    printf(\"%d\\n\",(int)ans);;;\n    return 0;\n}") }
+2023-04-15 12:22:03.851209477 [INFO] <remote_judge::server::server:67>:WsRequest { remote_judge: "codeforces", request_type: "judge", lang: Some("cpp"), problem_id: Some("1641D"), source: Some("// Hydro submission #6332f9d15741ce022119322a@1664285138104\n#include <bits/stdc++.h>\ntypedef long long llt;\ntypedef unsigned uint;typedef unsigned long long ullt;\ntypedef bool bol;typedef char chr;typedef void voi;\ntypedef double dbl;\ntemplate<typename T>bol _max(T&a,T b){return(a<b)?a=b,true:false;}\ntemplate<typename T>bol _min(T&a,T b){return(b<a)?a=b,true:false;}\ntemplate<typename T>T power(T base,T index,T mod){return((index<=1)?(index?base:1):(power(base*base%mod,index>>1,mod)*power(base,index&1,mod)))%mod;}\ntemplate<typename T>T lowbit(T n){return n&-n;}\ntemplate<typename T>T gcd(T a,T b){return b?gcd(b,a%b):a;}\ntemplate<typename T>T lcm(T a,T b){return(a!=0||b!=0)?a/gcd(a,b)*b:(T)0;}\ntemplate<typename T>T exgcd(T a,T b,T&x,T&y){if(!b)return y=0,x=1,a;T ans=exgcd(b,a%b,y,x);y-=a/b*x;return ans;}\nuint W[100005],A[100005][5],Ans[6][6];\nstd::vector<uint>QAQ;\ntypedef std::pair<uint,uint>Pair;\nPair P[6][6];\nuint m;\nuint lcs(uint a,uint b)\n{\n    for(uint i=0;i<m;i++)for(uint j=0;j<m;j++)\n        if(A[a][i]==A[b][j])Ans[i+1][j+1]=Ans[i][j]+1,P[i+1][j+1]=Pair(i,j);\n        else Ans[i+1][j+1]=std::max(Ans[i+1][j],Ans[i][j+1]),P[i+1][j+1]=Ans[i+1][j]>Ans[i][j+1]?Pair(i+1,j):Pair(i,j+1);\n    QAQ.clear();\n    Pair now=Pair(m,m);\n    while(now!=Pair())\n    {\n        if(P[now.first][now.second].first<now.first&&P[now.first][now.second].second<now.second)QAQ.push_back(A[a][now.first]);\n        now=P[now.first][now.second];\n    }\n    return Ans[m][m];\n}\nuint Id[100005],Now[100005],cnt=0;\nconst uint Lim[]={0,1,5,15,40,100};\nint main()\n{\n    uint n;uint ans=-1;\n    scanf(\"%u%u\",&n,&m);\n    for(uint i=0;i<n;i++)\n    {\n        for(uint j=0;j<m;j++)scanf(\"%u\",A[i]+j);\n        scanf(\"%u\",W+i);\n        std::sort(A[i],A[i]+m);\n        Id[i]=i;\n    }\n    std::sort(Id,Id+n,[&](uint a,uint b){return W[a]<W[b];});\n    for(uint i=0;i<n;i++)\n    {\n        uint p=Id[i];\n        std::map<std::vector<uint>,uint>LCNT;\n        for(uint j=0;j<cnt;j++)\n        {\n            uint c=lcs(p,Now[j]);\n            LCNT[QAQ]++;\n            if(!c)_min(ans,W[p]+W[Now[j]]);;;\n        }\n        bol b=true;;\n        for(auto p:LCNT)if(p.second>Lim[m-p.first.size()]){b=false;break;}\n        if(b)Now[cnt++]=p;\n    }\n    printf(\"%d\\n\",(int)ans);;;\n    return 0;\n}") }
+2023-04-15 12:49:44.781709200 [INFO] <remote_judge::server::server:23>:web-socket服务: 127.0.0.1:4396

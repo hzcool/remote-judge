@@ -1,0 +1,84 @@
+#include<bits/stdc++.h>
+#define L(i, j, k) for(int i = (j); i <= (k); ++i)
+#define R(i, j, k) for(int i = (j); i >= (k); --i)
+#define ll long long 
+#define vi vector < int > 
+#define sz(a) ((int) (a).size())
+#define ll long long 
+#define ull unsigned long long
+#define me(a, x) memset(a, x, sizeof(a)) 
+using namespace std;
+const int N = 1 << 20, O = 1 << 19, mod = 998244353;
+int n, a[N];
+vi vc[N]; 
+ll ns;
+int tl[N], tr[N], tp;
+int mp[N];
+
+vector < pair < int, int > > Pd[N]; // id, val;
+
+int idt, len[N], *fen[N], pool[N * 20], *cur = pool;
+inline void add(int ip, int p, int w) {
+	for(; p <= len[ip]; p += p & -p) 
+		(fen[ip][p] += w) %= mod;
+}
+inline int query(int ip, int p) {
+	int ret = 0;
+	for(; p; p -= p & -p) 
+		(ret += fen[ip][p]) %= mod;
+	return ret;
+}
+void solve(int l, int r, int o) {
+	if(l > r) return ;
+	++idt;
+	len[idt] = (r - l + 1) * 2 + 2;
+	fen[idt] = cur, cur += len[idt] + 1;
+	int pre = r - l + 2;
+	Pd[l - 1].emplace_back(idt, pre);
+	L(i, l, r) {
+		if(a[i] == o) {
+			pre += 1;
+		} else {
+			pre -= 1;
+		}
+		Pd[i].emplace_back(idt, pre);
+	}
+} 
+
+int dp[N];
+int main() {
+	ios :: sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
+	cin >> n;
+	L(i, 1, n * 2) cin >> a[i], vc[a[i]].emplace_back(i);
+	L(i, 0, n * 2) {
+		tp = 0;
+		for(const int &u : vc[i]) {
+			++tp;
+			tl[tp] = u - 1, tr[tp] = u + 1;
+			while(tp > 1) {
+				int len = min(tr[tp], tr[tp - 1]) - max(tl[tp - 1], tl[tp]) + 1;
+				if(len <= 0) break ;
+				int l = min(tl[tp - 1], tl[tp]) - len / 2 - 1, 
+					r = max(tr[tp], tr[tp - 1]) + len / 2 + 1;
+				-- tp;
+				tl[tp] = l, tr[tp] = r;
+			}
+		}
+		L(j, 1, tp) 
+			tl[j] = max(tl[j], 1), tr[j] = min(tr[j], n * 2), 
+			solve(tl[j], tr[j], i);
+	}
+	int pre = 0;
+	dp[0] = 1; 
+	for(int i = 0; i <= n * 2; i += 2) {
+		(dp[i] += pre) %= mod;
+		for(auto u : Pd[i]) 
+			(dp[i] += mod - query(u.first, u.second - 1)) %= mod;
+		for(auto u : Pd[i]) 
+			add(u.first, u.second, dp[i]);
+		(pre += dp[i]) %= mod;
+	}
+	cout << dp[n * 2] << '\n';
+	return 0;
+}
