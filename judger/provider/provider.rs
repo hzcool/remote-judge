@@ -10,9 +10,7 @@ pub trait Provider: Send {
         __problem_id: &str,
         __source: &str,
         __lang: &str,
-    ) -> anyhow::Result<String>;
+    ) -> anyhow::Result<(String, serde_json::Value)>; // 返回 submission id 和 返回服务方其他信息
 
     async fn poll(&self, submission_id: &str) -> anyhow::Result<SubmissionStatus>;
-
-    fn get_handler_info(&self) -> serde_json::Value;
 }

@@ -326,7 +326,7 @@ impl Provider for Codeforces {
         problem_id: &str,
         source: &str,
         lang: &str,
-    ) -> anyhow::Result<String> {
+    ) -> anyhow::Result<(String, serde_json::Value)> {
         self.ensure_login().await?;
 
         let pos = problem_id.find(|c: char| c.is_alphabetic()).unwrap_or(0);
@@ -362,9 +362,11 @@ impl Provider for Codeforces {
             let html = resp.text().await?;
             Codeforces::extract_submission_id_from_html(&html, None)
         };
-        let res = future().await;
+        
         self.h.release(problem_id).await;
-        res
+        let res = future().await?;
+        let value = serde_json::json!({"submissionId": res,  "account": self.h.username});
+        Ok((res, value))
     }
 
     async fn poll(&self, submission_id: &str) -> anyhow::Result<SubmissionStatus> {
@@ -463,12 +465,6 @@ impl Provider for Codeforces {
             }
         }
         Ok(status)
-    }
-
-    fn get_handler_info(&self) -> serde_json::Value {
-        serde_json::json!({
-            "account": self.h.username
-        })
     }
 }
 

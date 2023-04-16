@@ -160,7 +160,7 @@ impl Provider for Atcoder {
         problem_id: &str,
         source: &str,
         lang_id: &str,
-    ) -> anyhow::Result<String> {
+    ) -> anyhow::Result<(String, serde_json::Value)> {
         let csrf_token = self.ensure_login().await?;
         let pos = problem_id.find('_').unwrap_or(0);
         let contest_id = &problem_id[..pos];
@@ -191,10 +191,10 @@ impl Provider for Atcoder {
             let sid = Atcoder::extract_submission_id_from_html(&html)?;
             Ok(format!("{}_{}", contest_id, sid))
         };
-
-        let res = future().await;
         self.h.release(problem_id).await;
-        res
+        let res = future().await?;
+        let value = serde_json::json!({"submissionId": res,  "account": self.h.username});
+        Ok((res, value))
     }
 
     async fn poll(&self, submission_id: &str) -> anyhow::Result<SubmissionStatus> {
@@ -283,12 +283,6 @@ impl Provider for Atcoder {
             return Ok(s);
         }
         Err(anyhow!("poll status 失败"))
-    }
-
-    fn get_handler_info(&self) -> serde_json::Value {
-        serde_json::json!({
-            "account": self.h.username
-        })
     }
 }
 

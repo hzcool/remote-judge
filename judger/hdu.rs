@@ -232,7 +232,7 @@ impl Provider for Hdu {
         problem_id: &str,
         source: &str,
         lang: &str,
-    ) -> anyhow::Result<String> {
+    ) -> anyhow::Result<(String, serde_json::Value)> {
         self.ensure_login().await?;
 
         let data = serde_json::json!({
@@ -264,9 +264,11 @@ impl Provider for Hdu {
 
             Ok(res.submission_id)
         };
-        let res = furure().await;
         self.h.release(problem_id).await;
-        res
+        let res = furure().await?;
+
+        let value = serde_json::json!({"submissionId": res,  "account": self.h.username});
+        Ok((res, value))
     }
 
     async fn poll(&self, submission_id: &str) -> anyhow::Result<SubmissionStatus> {
@@ -289,12 +291,6 @@ impl Provider for Hdu {
             }))
         }
         Ok(s)
-    }
-
-    fn get_handler_info(&self) -> serde_json::Value {
-        serde_json::json!({
-            "account": self.h.username
-        })
     }
 }
 

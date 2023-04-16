@@ -27,15 +27,8 @@ async fn judge_task<T: ?Sized + Provider>(
         return Err(anyhow!("不支持该语言"));
     };
 
-    let submission_id = provider.submit_code(problem_id, source, lang_id).await?;
-    ws.send(Message::Text(
-        serde_json::json!({
-            "submission_id": submission_id,
-            "info": provider.get_handler_info()
-        })
-        .to_string(),
-    ))
-    .await?;
+    let (submission_id, info) = provider.submit_code(problem_id, source, lang_id).await?;
+    ws.send(Message::Text(info.to_string())).await?;
 
     let config = server_config();
 
