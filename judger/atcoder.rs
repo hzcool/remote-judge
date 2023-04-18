@@ -193,7 +193,8 @@ impl Provider for Atcoder {
         };
         self.h.release(problem_id).await;
         let res = future().await?;
-        let value = serde_json::json!({"submissionId": res,  "account": self.h.username});
+        let pos = res.find('_').unwrap();
+        let value = serde_json::json!({"submissionId": &res[pos + 1..],  "account": self.h.username});
         Ok((res, value))
     }
 
