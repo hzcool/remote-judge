@@ -6,7 +6,6 @@ use super::provider::{Problem, Provider, SubmissionStatus};
 use super::utils::{extract_integer, get_text_arr_of_children_element};
 
 use anyhow::{anyhow, Ok};
-use async_trait::async_trait;
 use once_cell::sync::OnceCell;
 use scraper::{Html, Selector};
 use tokio::sync::Mutex;
@@ -121,7 +120,6 @@ impl Atcoder {
     }
 }
 
-#[async_trait]
 impl Provider for Atcoder {
     async fn get_problem(&self, problem_id: &str) -> anyhow::Result<Problem> {
         let pos = problem_id.find('_').unwrap_or(0);
@@ -194,7 +192,8 @@ impl Provider for Atcoder {
         self.h.release(problem_id).await;
         let res = future().await?;
         let pos = res.find('_').unwrap();
-        let value = serde_json::json!({"submissionId": &res[pos + 1..],  "account": self.h.username});
+        let value =
+            serde_json::json!({"submissionId": &res[pos + 1..],  "account": self.h.username});
         Ok((res, value))
     }
 

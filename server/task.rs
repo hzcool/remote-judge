@@ -27,7 +27,20 @@ async fn judge_task<T: ?Sized + Provider>(
         return Err(anyhow!("不支持该语言"));
     };
 
-    let (submission_id, info) = provider.submit_code(problem_id, source, lang_id).await?;
+    let retry_submit_code = || async {
+        // 最大重试 3 次
+        for _ in 0..2 {
+            let submit_code_resp = provider.submit_code(problem_id, source, lang_id).await;
+            if submit_code_resp.is_ok() {
+                return submit_code_resp;
+            }
+            tokio::time::sleep(std::time::Duration::from_secs(2)).await;
+        }
+        return provider.submit_code(problem_id, source, lang_id).await;
+    };
+
+    let (submission_id, info) = retry_submit_code().await?;
+
     ws.send(Message::Text(info.to_string())).await?;
 
     let config = server_config();

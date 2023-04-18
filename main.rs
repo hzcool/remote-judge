@@ -1,4 +1,5 @@
 #![feature(async_fn_in_trait)]
+
 use std::str::FromStr;
 
 pub mod global;

@@ -10,7 +10,6 @@ use super::utils::{
 };
 
 use anyhow::{anyhow, Ok};
-use async_trait::async_trait;
 use once_cell::sync::OnceCell;
 use rand::prelude::*;
 use scraper::{ElementRef, Html, Selector};
@@ -77,10 +76,10 @@ impl Codeforces {
    
 
     pub async fn is_login(&self) -> anyhow::Result<()> {
-        let resp = self.h.req.get("enter").await?;
+        let resp = self.h.req.get("edu/courses").await?;
         let text = resp.text().await?;
-
-        if text.contains("Login into Codeforces")
+        let pos = text.find("Enter").unwrap_or(10000000);
+        if (pos + 120 < text.len() && (&text[pos..pos + 120]).find("Register").is_some()) 
             || (text.len() < 1000 && text.contains("Redirecting..."))
         {
             return Err(anyhow!("未登录"));
@@ -118,7 +117,6 @@ impl Codeforces {
             "password": self.h.password,
             "action": "enter"
         });
-
         self.h.req.post("enter", &data).await?;
         self.is_login().await
     }
@@ -215,7 +213,6 @@ impl Codeforces {
     }
 }
 
-#[async_trait]
 impl Provider for Codeforces {
     async fn get_problem(&self, problem_id: &str) -> anyhow::Result<Problem> {
         let pos = problem_id.find(|c: char| c.is_alphabetic()).unwrap_or(0);
@@ -360,6 +357,7 @@ impl Provider for Codeforces {
                 return Err(anyhow!("提交代码失败"));
             }
             let html = resp.text().await?;
+            
             Codeforces::extract_submission_id_from_html(&html, None)
         };
         

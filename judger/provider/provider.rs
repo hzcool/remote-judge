@@ -1,7 +1,5 @@
 use super::{Problem, SubmissionStatus};
-use async_trait::async_trait;
 
-#[async_trait]
 pub trait Provider: Send {
     async fn get_problem(&self, __problem_id: &str) -> anyhow::Result<Problem>;
 

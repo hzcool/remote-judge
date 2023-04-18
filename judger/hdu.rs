@@ -4,7 +4,6 @@ use super::Handler;
 
 use crate::global::{self, judge_status, remote_judge_config, remote_judge_constant as constant};
 use anyhow::{anyhow, Ok};
-use async_trait::async_trait;
 use once_cell::sync::OnceCell;
 use scraper::{ElementRef, Html, Selector};
 use tokio::sync::Mutex;
@@ -162,7 +161,6 @@ impl Hdu {
     }
 }
 
-#[async_trait]
 impl Provider for Hdu {
     async fn get_problem(&self, problem_id: &str) -> anyhow::Result<Problem> {
         let resp = self
