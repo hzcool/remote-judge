@@ -13,6 +13,7 @@ use anyhow::{anyhow, Ok};
 use once_cell::sync::OnceCell;
 use rand::prelude::*;
 use scraper::{ElementRef, Html, Selector};
+use simple_log::info;
 use tokio::sync::Mutex;
 
 async fn get_codeforces_handler() -> anyhow::Result<&'static Handler> {
@@ -49,6 +50,7 @@ async fn get_codeforces_handler() -> anyhow::Result<&'static Handler> {
     Ok(&handlers[now])
 }
 
+
 fn status_map(status: &str) -> String {
     for (&k, &v) in global::judge_status_map::CODEFORCES_STATUS_MAP.get().unwrap() {
         if status.contains(k) {
@@ -57,6 +59,8 @@ fn status_map(status: &str) -> String {
     }
     global::judge_status::RE.into()
 } 
+
+
 
 pub struct Codeforces {
     h: &'static Handler,
@@ -73,18 +77,49 @@ impl Codeforces {
         })
     }
 
-   
+   pub fn get_x_csrf_token(text: &str) -> Option<String> {
+        static RE: OnceCell<regex::Regex> = OnceCell::new();
+        let re = RE.get_or_init(|| {
+            regex::Regex::new(r#"name="X-Csrf-Token"\s+content="([[:alnum:]]+)""#).unwrap()
+        });
+        if let Some(cap) = re.captures_iter(text).next() {
+            // println!("token {}", &cap[1]);
+            return Some(cap[1].into())
+        }
+        return None;
+   }
 
-    pub async fn is_login(&self) -> anyhow::Result<()> {
-        let resp = self.h.req.get("edu/courses").await?;
-        let text = resp.text().await?;
-        let pos = text.find("Enter").unwrap_or(10000000);
+    pub fn is_login(text: &str) -> anyhow::Result<(bool, String)> { // csrf_token
+        let Some(csrf_token) = Codeforces::get_x_csrf_token(text) else {
+            info!("codeforces 页面访问未包含 X-Csrf-Token, 可能访问已经被拦截 !!!");
+            return Err(anyhow!("codeforces 页面访问未包含 X-Csrf-Token, 可能访问已经被拦截 !!!"));
+        };
+        let pos: usize = text.find("Enter").unwrap_or(10000000);
         if (pos + 120 < text.len() && (&text[pos..pos + 120]).find("Register").is_some()) 
             || (text.len() < 1000 && text.contains("Redirecting..."))
         {
-            return Err(anyhow!("未登录"));
+            return Ok((false, csrf_token))
         }
-        Ok(())
+        Ok((true, csrf_token))
+    }
+
+    pub async fn ensure_login(&self) -> anyhow::Result<String> {
+        let resp = self.h.req.get("edu/courses").await?;
+        let text = resp.text().await?;
+        let(logged,csrf_token) = Codeforces::is_login(text.as_str())?;
+        if logged {
+            return Ok(csrf_token);
+        }
+        let data = serde_json::json!({
+            "handleOrEmail": self.h.username,
+            "password": self.h.password,
+            "action": "enter",
+            "csrf_token": csrf_token
+        });
+        let resp = self.h.req.post("enter", &data).await?;
+        let text = resp.text().await?;
+        let(logged, csrf_token) = Codeforces::is_login(text.as_str())?;
+        if logged {Ok(csrf_token)} else {Err(anyhow!("登录失败"))}
     }
 
     pub fn html_to_markdown(html: &str) -> String {
@@ -108,18 +143,6 @@ impl Codeforces {
         ret
     }
 
-    pub async fn ensure_login(&self) -> anyhow::Result<()> {
-        if self.is_login().await.is_ok() {
-            return Ok(());
-        }
-        let data = serde_json::json!({
-            "handleOrEmail": self.h.username,
-            "password": self.h.password,
-            "action": "enter"
-        });
-        self.h.req.post("enter", &data).await?;
-        self.is_login().await
-    }
 
     pub fn extract_submission_id_from_html(
         html: &str,
@@ -223,12 +246,11 @@ impl Provider for Codeforces {
             .h
             .req
             .get(&format!(
-                "{}/{}/problem/{}",
-                if self.for_gym { "gym" } else { "contest" },
-                contest_id,
-                problem_index
+                "{}/{contest_id}/problem/{problem_index}",
+                if self.for_gym { "gym" } else { "contest" },    
             ))
             .await?;
+        // println!("{:?}", resp);
 
         let url = resp.url().clone();
         if !url.as_str().contains(contest_id) {
@@ -324,21 +346,23 @@ impl Provider for Codeforces {
         source: &str,
         lang: &str,
     ) -> anyhow::Result<(String, serde_json::Value)> {
-        self.ensure_login().await?;
-
+        let csrf_token = self.ensure_login().await?;
         let pos = problem_id.find(|c: char| c.is_alphabetic()).unwrap_or(0);
         let rand_num: u64 = rand::thread_rng().gen::<u64>();
+        let contest_id = &problem_id[..pos];
+
         let data = serde_json::json!({
             "action": "submitSolutionFormSubmitted",
             "tabSize": 4,
             "source": format!("{}//{}", source, rand_num),
             "sourceFile": "",
-            "contestId": &problem_id[..pos],
+            "contestId": contest_id,
             "submittedProblemIndex": &problem_id[pos..],
-            "programTypeId": lang
+            "programTypeId": lang,
+            "csrf_token": csrf_token
         });
 
-        self.h.accquire(problem_id).await;
+        self.h.accquire(contest_id).await;
         let future = || async {
             let resp = self
                 .h
@@ -353,15 +377,15 @@ impl Provider for Codeforces {
                 )
                 .await?;
 
-            if !resp.url().as_str().ends_with("my") {
+            if !resp.status().is_success() {
                 return Err(anyhow!("提交代码失败"));
             }
-            let html = resp.text().await?;
-            
+            let reps2 = self.h.req.get(&format!("contest/{}/my", contest_id)).await?;
+            let html = reps2.text().await?;
             Codeforces::extract_submission_id_from_html(&html, None)
         };
         
-        self.h.release(problem_id).await;
+        self.h.release(contest_id).await;
         let res = future().await?;
         let value = serde_json::json!({"submissionId": res,  "account": self.h.username});
         Ok((res, value))

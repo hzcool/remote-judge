@@ -10,11 +10,15 @@ pub struct PostConfig {
 }
 
 fn default_header() -> header::HeaderMap {
-    let headers = header::HeaderMap::new();
-    // headers.insert(
-    //     "Content-Type",
-    //     header::HeaderValue::from_static("application/x-www-form-urlencoded"),
-    // );
+    let mut headers = header::HeaderMap::new();
+    [
+        ("Accept", header::HeaderValue::from_static("*/*")),
+        ("Connection", header::HeaderValue::from_static("keep-alive")),
+    ]
+    .into_iter()
+    .for_each(|(x, y)| {
+        headers.insert(x, y);
+    });
     headers
 }
 
@@ -65,8 +69,6 @@ impl RemoteJudgeRequest {
         let Result::Ok(q) = self.client.get(self.base_url).build() else {
             return HashMap::default();
         };
-
-        
 
         println!("{:?}", q.headers());
 
