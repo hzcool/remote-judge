@@ -8,6 +8,11 @@ pub struct PostConfig {
     headers: header::HeaderMap,
     timeout: Option<std::time::Duration>,
 }
+impl PostConfig {
+    pub fn new(headers: header::HeaderMap, timeout: Option<std::time::Duration>) -> Self {
+        Self { headers, timeout }
+    }
+}
 
 fn default_header() -> header::HeaderMap {
     let mut headers = header::HeaderMap::new();

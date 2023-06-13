@@ -1,4 +1,5 @@
 use super::Handler;
+use super::utils::request::PostConfig;
 use crate::global::{self, remote_judge_config, remote_judge_constant as constant};
 use crate::judger::utils::get_text_of_element;
 use std::collections::HashMap;
@@ -10,11 +11,12 @@ use super::utils::{
 };
 
 use anyhow::{anyhow, Ok};
+use hyper::HeaderMap;
 use once_cell::sync::OnceCell;
 use rand::prelude::*;
 use scraper::{ElementRef, Html, Selector};
 use simple_log::info;
-use tokio::sync::Mutex;
+use tokio::sync::{Mutex, RwLock};
 
 async fn get_codeforces_handler() -> anyhow::Result<&'static Handler> {
     static HANDLERS: OnceCell<Vec<Handler>> = OnceCell::new();
@@ -60,11 +62,24 @@ fn status_map(status: &str) -> String {
     global::judge_status::RE.into()
 } 
 
+fn records_map() -> &'static RwLock<HashMap<String, (String, String)>> {
+    static MAP: OnceCell<RwLock<HashMap<String, (String, String)>>> = OnceCell::new();
+    MAP.get_or_init(|| RwLock::new(HashMap::new()))
+}
+
+async fn record_set(submission_id: String, contest_problem: (String, String)) {
+    records_map().write().await.insert(submission_id.clone(), contest_problem);
+    tokio::spawn(async move {
+        tokio::time::sleep(tokio::time::Duration::from_secs(3600)).await;
+        let _ = records_map().write().await.remove(submission_id.as_str());
+    });
+}
 
 
 pub struct Codeforces {
     h: &'static Handler,
     for_gym: bool,
+    csrf_token: tokio::sync::RwLock<String>,
 }
 
 
@@ -74,6 +89,7 @@ impl Codeforces {
         Ok(Self {
             h: get_codeforces_handler().await?,
             for_gym,
+            csrf_token: tokio::sync::RwLock::new(String::new()),
         })
     }
 
@@ -347,9 +363,11 @@ impl Provider for Codeforces {
         lang: &str,
     ) -> anyhow::Result<(String, serde_json::Value)> {
         let csrf_token = self.ensure_login().await?;
+        *self.csrf_token.write().await = csrf_token.clone();
         let pos = problem_id.find(|c: char| c.is_alphabetic()).unwrap_or(0);
         let rand_num: u64 = rand::thread_rng().gen::<u64>();
         let contest_id = &problem_id[..pos];
+        let peoblem_idx = &problem_id[pos..];
 
         let data = serde_json::json!({
             "action": "submitSolutionFormSubmitted",
@@ -357,7 +375,7 @@ impl Provider for Codeforces {
             "source": format!("{}//{}", source, rand_num),
             "sourceFile": "",
             "contestId": contest_id,
-            "submittedProblemIndex": &problem_id[pos..],
+            "submittedProblemIndex": peoblem_idx,
             "programTypeId": lang,
             "csrf_token": csrf_token
         });
@@ -387,6 +405,7 @@ impl Provider for Codeforces {
         
         self.h.release(contest_id).await;
         let res = future().await?;
+        record_set(res.clone(), (contest_id.into(), peoblem_idx.into())).await;
         let value = serde_json::json!({"submissionId": res,  "account": self.h.username});
         Ok((res, value))
     }
@@ -394,11 +413,21 @@ impl Provider for Codeforces {
     async fn poll(&self, submission_id: &str) -> anyhow::Result<SubmissionStatus> {
         let data = serde_json::json!({
             "submissionId": submission_id,
+            "csrf_token": self.csrf_token.read().await.clone()
         });
-        let resp = self.h.req.post("data/submitSource", &data).await?;
+        let header_map = {
+            let mp = records_map().read().await;
+            let x = mp.get(submission_id);
+            let mut header_map = HeaderMap::new();
+            header_map.insert("referer", format!("{}contest/{}/my", constant::base_url::CODEFORCES, x.unwrap().0 ).parse().unwrap());
+            header_map
+        };
+
+        let config = PostConfig::new(header_map, None);
+        
+        let resp = self.h.req.post_with_config("data/submitSource", &data, config).await?;
 
         let text = resp.text().await?;
-
         let result = serde_json::from_str::<HashMap<String, String>>(&text).unwrap_or_default();
 
         if result.is_empty() {
