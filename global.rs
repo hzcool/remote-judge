@@ -63,8 +63,8 @@ pub mod remote_judge_constant {
         pub const ATCODER: &str = "atcoder";
     }
     pub mod base_url {
-        pub const CODEFORCES: &str = "https://codeforces.com/";
-        // pub const CODEFORCES: &str = "https://codeforc.es/";
+        // pub const CODEFORCES: &str = "https://codeforces.com/";
+        pub const CODEFORCES: &str = "https://codeforc.es/";
         pub const HDU: &str = "https://acm.hdu.edu.cn/";
         pub const GYM: &str = "https://codeforces.com/";
         pub const ATCODER: &str = "https://atcoder.jp/";
